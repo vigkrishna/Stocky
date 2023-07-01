@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/c0c1f0b98f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./style.css">
+    <title>Stocky</title>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#search-button').click(function () {
+                var searchTerm = $('#search-input').val();
+                $.ajax({
+                    url: 'https://www.alphavantage.co/query',
+                    data: {
+                        function: 'SYMBOL_SEARCH',
+                        keywords: searchTerm,
+                        apikey: 'fdjhKegAYwEfVYL7Le4NwCisWpzvVFeM'
+                    },
+                    success: function (response) {
+                        var results = response['bestMatches'];
+                        var table = $('<table>');
+                        var header = $('<tr>').append(
+                            $('<th>').text('Symbol'),
+                            $('<th>').text('Name'),
+                            $('<th>').text('Type'),
+                            $('<th>').text('Region'),
+                            $('<th>').text('Currency')
+                        );
+                        table.append(header);
+                        results.forEach(function (result) {
+                            var row = $('<tr>').append(
+                                $('<td>').text(result['1. symbol']),
+                                $('<td>').text(result['2. name']),
+                                $('<td>').text(result['3. type']),
+                                $('<td>').text(result['4. region']),
+                                $('<td>').text(result['8. currency'])
+                            );
+                            table.append(row);
+                        });
+                        $('#results').empty().append(table);
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <navbar class="navbar_wrapper">
+        <div class="grid">
+            <div class="logo">
+                <!-- <img src="./images/logo.png" alt=""> -->
+                <strong>Stocky</strong>
+            </div>
+
+            <div class="nav_links">
+                <a href="./signup.html">Sign Up</a>
+                <button class="login_button"><a href="./login.html">Log In</a></button>
+            </div>
+        </div>
+    </navbar>
+
+    <div class="overlays">
+        <video class="video_background" autoplay muted preload loop src="diamond.mp4"></video>
+
+        <div class="overlay_background"></div>
+    </div>
+
+    <!-- <div class="chatbot_wrapper">
+        <i class="fa-solid fa-messages"></i>
+
+        <div class="chat_input">
+            <input type="text">
+        </div>
+    </div> -->
+
+    <section class="hero_wrapper">
+        <div class="content_wrapper">
+            <strong>STOCKY <span> Fast and Easy</span></strong>
+            <button class="Explore_btn">Explore <i class="fa-solid fa-arrow-down"></i></button>
+        </div>
+
+        <div class="image_wrapper">
+            <div class="image1">
+                <img src="hero_img.png" alt=""> 
+            </div>
+
+            <div class="image2">
+                <img src="stock_app.png" alt="">
+
+                <p>Machine Learning & AI</p>
+            </div>
+
+            <div class="image3">
+                <img src="hero_gif.gif" alt="">
+
+                <strong>Increase your money by investing right!</strong>
+                <!-- <img src="./images/file_icon.png" alt=""> -->
+            </div>
+
+        </div>
+    </section>
+
+    <section class="search_wrapper">
+        <label class="section_heading" for="search-input">Search Stocks for any Company</label>
+
+        <div class="grid">
+            <input type="text" id="search-input" placeholder="Search For Stocks...">
+            <button id="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+
+            <div id="results"></div>
+
+            <div class="trading_wrapper">
+                <button id="tradingsite"><a href="https://zerodha.com/">Start Trading</a></button>
+            </div>
+        </div>
+
+        <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+            <!-- <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/markets/" rel="noopener"
+                    target="_blank"><span class="blue-text">Markets today</span></a> by
+                TradingView</div> -->
+
+            <script type="text/javascript"
+                src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+                  
+                        "symbols"; [
+                            {
+                                "proName": "FOREXCOM:SPXUSD",
+                                "title": "S&P 500"
+                            },
+                            {
+                                "proName": "FOREXCOM:NSXUSD",
+                                "title": "US 100"
+                            },
+                            {
+                                "proName": "FX_IDC:EURUSD",
+                                "title": "EUR/USD"
+                            },
+                            {
+                                "proName": "BITSTAMP:BTCUSD",
+                                "title": "Bitcoin"
+                            },
+                            {
+                                "description": "",
+                                "proName": "NASDAQ:TSLA"
+                            },
+                            {
+                                "description": "",
+                                "proName": "NASDAQ:AAPL"
+                            },
+                            {
+                                "description": "",
+                                "proName": "NASDAQ:NVDA"
+                            },
+                            {
+                                "description": "",
+                                "proName": "NASDAQ:AMZN"
+                            },
+                            {
+                                "description": "",
+                                "proName": "NASDAQ:MSFT"
+                            },
+                            {
+                                "description": "",
+                                "proName": "NASDAQ:META"
+                            },
+                            {
+                                "description": "",
+                                "proName": "NASDAQ:AMD"
+                            },
+                            {
+                                "description": "",
+                                "proName": "NASDAQ:GOOGL"
+                            },
+                            {
+                                "description": "",
+                                "proName": "NASDAQ:NFLX"
+                            }
+
+                        ],
+                           { "showSymbolLogo": true ,
+                                "colorTheme": "light",
+                                    "isTransparent": true,
+                                        "displayMode": "adaptive",
+                                            "locale": "en",
+                    }
+                </script>
+        </div>
+    </section>
+
+    <section class="tips_wrapper">
+        <!-- Anirudh Garg TIPS TO DO STOCK TRADING WEBPAGE -->
+        <strong class="section_heading">Here are some points to keep in mind while doing stock trading</strong>
+
+        <div class="dropdown_wrapper">
+            <div class="grid active">
+                <div class="intro_wrapper">
+                    <i class="fa-solid fa-caret-up dropdown_menu"></i>
+                    <strong>Do your research</strong>
+                </div>
+
+                <div class="content_wrapper">
+                    <p>Before investing in any stock, do your due diligence and research the
+                        company
+                        thoroughly. Understand its business model, financials, industry trends, and any recent news or
+                        developments.</p>
+                </div>
+            </div>
+
+            <div class="grid active">
+                <div class="intro_wrapper">
+                    <i class="fa-solid fa-caret-up dropdown_menu"></i>
+                    <strong>Set a clear investment strategy</strong>
+                </div>
+
+                <div class="content_wrapper">
+                    <p>Develop a clear investment strategy that aligns with your
+                        financial
+                        goals, risk tolerance, and time horizon. Stick to your strategy and avoid impulsive decisions.
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid active">
+                <div class="intro_wrapper">
+                    <i class="fa-solid fa-caret-up dropdown_menu"></i>
+                    <strong>Diversify your portfolio</strong>
+                </div>
+
+                <div class="content_wrapper">
+                    <p>Diversify your portfolio by investing in a mix of stocks from
+                        different
+                        sectors, industries, and regions. This will help spread your risk and reduce the impact of any
+                        one
+                        stock's
+                        poor
+                        performance.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="tips_refer_wrapper">
+            <img src="tips.png" alt="">
+
+            <button class="tips_refer_button"><a href="https://www.stash.com/learn/stock-market-terms/">For More Explore
+                    <i class="fa-solid fa-link"></i></a></button>
+        </div>
+    </section>
+    </script>
+</body>
+
+</html>

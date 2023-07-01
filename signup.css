@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Alkatra:wght@400;500&family=Inter:wght@300;500;700&family=Oswald:wght@700&family=Playfair+Display:ital,wght@0,800;1,400&family=Poppins:ital,wght@0,300;1,400;1,500&family=Rajdhani:wght@500&family=Roboto+Slab:wght@300;600&display=swap');
+
+.wholebody {
+    font-family: 'Inter';
+    z-index: 100;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    box-sizing: border-box;
+    height: 100vh;
+    overflow: hidden;
+    background: black;
+}
+
+.container {
+    width: 800px;
+    margin: 0 auto;
+    z-index: 100;
+    /* padding: 20px; */
+
+}
+
+form {
+    background-color: #ccc;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 30px;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 0;
+    font-size: 50px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.flex {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.submit_button {
+    width: fit-content;
+    padding: 10px;
+    width: 100px;
+    font-size: 16px;
+    background: black;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+
+input[type=text],
+input[type=email],
+input[type=password] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    background-color: black;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+}
+
+@media only screen and (min-width: 768px) {
+    .container {
+        padding: 40px;
+    }
+
+    form {
+        padding: 40px;
+    }
+
+    input[type=text],
+    input[type=email],
+    input[type=password] {
+        width: calc(100% - 20px);
+    }
+
+    input[type=submit] {
+        width: auto;
+    }
+}
+
+/*# sourceMappingURL=signup.css.map */
