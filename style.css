@@ -471,3 +471,39 @@ td {
     padding-left: 100px;
   }
 }/*# sourceMappingURL=style.css.map */
+
+
+@media screen and (min-width:200px) and ( max-width:600px){
+  .nav_links{
+    flex-direction: column;
+   
+  }
+  .navbar_wrapper .grid{
+    padding: 17px 50px;
+  }
+
+  .hero_wrapper .image_wrapper .image3{
+    bottom: -22%;
+    right:-7%;
+  }
+
+  .hero_wrapper .image_wrapper .image2{
+    top:14%;
+    left:18%;
+  }
+
+  .search_wrapper .grid{
+    width:85vw;
+  }
+
+  .section_heading{
+    font-size: 1.47rem;
+  }
+
+  .search_wrapper .tradingview-widget-container{
+    top:93%;
+  }
+  /* .logo{
+    align-items: flex-start;
+  } */
+}
